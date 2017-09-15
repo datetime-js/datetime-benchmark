@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Benchmark</title>
+
+    <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Benchmark and dependencies -->
+    <script src="node_modules/lodash/lodash.js"></script>
+    <script src="node_modules/platform/platform.js"></script>
+    <script src="node_modules/benchmark/benchmark.js"></script>
+
+    <!-- DateTime v2 -->
+    <script src="node_modules/datetime2-tzdata/tzdata/2017a/js/Europe/Moscow.js"></script>
+    <script src="node_modules/datetime2/datetime.min.js"></script>
+    <script src="node_modules/datetime2-locale-ru/ru.js"></script>
+
+    <!-- MomentJS -->
+    <script src="node_modules/moment/min/moment.min.js"></script>
+    <script src="node_modules/moment-timezone/builds/moment-timezone-with-data-2012-2022.min.js"></script>
+
+    <!-- Reporter -->
+    <script src="lib/reporter/browser/index.js"></script>
+    <link rel="stylesheet" href="lib/reporter/browser/index.css">
+
+    <script>
+      /**
+       * ------------------------------------------------------------------------------------------------
+       * Setup libraries
+       * ------------------------------------------------------------------------------------------------
+       */
+
+      DateTime.setTzdata(tzdata);
+      DateTime.setDefaultTimezone('Europe/Moscow');
+    </script>
+
+    <!-- Suites -->
+    <script src="suite/array.js"></script>
+    <script src="suite/string.js"></script>
+    <script src="suite/string-format.js"></script>
+    <script src="suite/start-day.js"></script>
+    <script src="suite/start-week.js"></script>
+    <script src="suite/display.js"></script>
+
+    <!-- Reports -->
+    <script src="report/1.0.1.js"></script>
+
+    <!-- Runner -->
+    <script src="lib/runner/browser/index.js"></script>
+  </head>
+  <body>
+    <div id="benchmark"></div>
+    <script>
+      (new Runner(document.querySelector('#benchmark'), {
+        report: report['1.0.1'],
+        suites: suites
+      }));
+    </script>
+  </body>
+</html>
