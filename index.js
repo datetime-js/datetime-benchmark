@@ -30,12 +30,9 @@ function runSuites (suitesToRun) {
 // No suite specified, run all
 if (!suiteId) {
   runSuites([
-    'array',
-    'string',
-    'string-format',
-    'start-day',
-    'start-week',
-    'display'
+    'parse-array',
+    'parse-string',
+    'parse-string-format'
   ]);
 } else {
   require('./boot');

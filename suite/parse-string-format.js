@@ -1,7 +1,7 @@
 (function suiteStringFormat () {
   'use strict';
 
-  var suiteId = 'string-format';
+  var suiteId = 'parse-string-format';
   var suite = new Benchmark.Suite();
 
   /**
@@ -32,7 +32,7 @@
   }
 
   suite = suite
-    .add('DateTime v2', DateTimeSuite)
+    .add('DateTime', DateTimeSuite)
     .add('MomentJS', MomentSuite)
     .add('MomentJS + Timezones', MomentTimezoneSuite);
 
@@ -43,7 +43,7 @@
    */
 
   var suiteItem = {
-    description: 'Create an instance with a string and format',
+    description: 'Create a new instance with a string and format',
     id: suiteId,
     suite: suite
   };

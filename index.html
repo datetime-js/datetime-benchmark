@@ -20,6 +20,13 @@
     <script src="node_modules/moment/min/moment.min.js"></script>
     <script src="node_modules/moment-timezone/builds/moment-timezone-with-data-2012-2022.min.js"></script>
 
+    <!-- js-joda -->
+    <script src="node_modules/js-joda/dist/js-joda.min.js"></script>
+    <script src="node_modules/js-joda-timezone/dist/js-joda-timezone.min.js"></script>
+    <script>
+      JSJoda.use(JSJodaTimezone);
+    </script>
+
     <!-- Reporter -->
     <script src="lib/reporter/browser/index.js"></script>
     <link rel="stylesheet" href="lib/reporter/browser/index.css">
@@ -36,12 +43,9 @@
     </script>
 
     <!-- Suites -->
-    <script src="suite/array.js"></script>
-    <script src="suite/string.js"></script>
-    <script src="suite/string-format.js"></script>
-    <script src="suite/start-day.js"></script>
-    <script src="suite/start-week.js"></script>
-    <script src="suite/display.js"></script>
+    <script src="suite/parse-array.js"></script>
+    <script src="suite/parse-string.js"></script>
+    <script src="suite/parse-string-format.js"></script>
 
     <!-- Reports -->
     <script src="report/1.0.1.js"></script>

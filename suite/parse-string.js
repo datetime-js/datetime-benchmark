@@ -1,7 +1,7 @@
 (function suiteString () {
   'use strict';
 
-  var suiteId = 'string';
+  var suiteId = 'parse-string';
   var suite = new Benchmark.Suite();
 
   /**
@@ -31,10 +31,18 @@
     return moment.tz('1996-10-05T14:00:34', 'Europe/Moscow');
   }
 
+  /**
+   * JSJoda suite
+   */
+  function JSJodaSuite () {
+    return JSJoda.ZonedDateTime.parse('1996-10-05T14:00:34+03:00[Europe/Moscow]');
+  }
+
   suite = suite
-    .add('DateTime v2', DateTimeSuite)
+    .add('DateTime', DateTimeSuite)
     .add('MomentJS', MomentSuite)
-    .add('MomentJS + Timezones', MomentTimezoneSuite);
+    .add('MomentJS with timezones', MomentTimezoneSuite)
+    .add('js-joda with timezones', JSJodaSuite);
 
   /**
    * ------------------------------------------------------------------------------------------------
@@ -43,7 +51,7 @@
    */
 
   var suiteItem = {
-    description: 'Create an instance with a string',
+    description: 'Create a new instance with a string',
     id: suiteId,
     suite: suite
   };

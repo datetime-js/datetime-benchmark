@@ -1,18 +1,8 @@
-(function suiteStartDay () {
+(function suiteArray () {
   'use strict';
 
-  var suiteId = 'start-day';
+  var suiteId = 'parse-array';
   var suite = new Benchmark.Suite();
-
-  /**
-   * ------------------------------------------------------------------------------------------------
-   * Prepare
-   * ------------------------------------------------------------------------------------------------
-   */
-
-  var datetimeInstance = new DateTime([1996, 10, 5, 14, 0, 34, 543]);
-  var momentInstance = moment([1996, 9, 5, 14, 0, 34, 543]);
-  var momentTimezoneInstance = moment.tz([1996, 9, 5, 14, 0, 34, 543], 'Europe/Moscow');
 
   /**
    * ------------------------------------------------------------------------------------------------
@@ -21,28 +11,28 @@
    */
 
   /**
-   * DateTime suite
-   */
-  function DateTimeSuite () {
-    datetimeInstance.setStartOfDay();
-  }
-
-  /**
    * MomentJS suite
    */
   function MomentSuite () {
-    momentInstance.startOf('day');
+    return moment([1996, 9, 5, 14, 0, 34, 543]);
   }
 
   /**
    * MomentJS Timezone suite
    */
   function MomentTimezoneSuite () {
-    momentTimezoneInstance.startOf('day');
+    return moment.tz([1996, 9, 5, 14, 0, 34, 543], 'Europe/Moscow');
+  }
+
+  /**
+   * DateTime2 suite
+   */
+  function DateTime2Suite () {
+    return new DateTime([1996, 10, 5, 14, 0, 34, 543]);
   }
 
   suite
-    .add('DateTime v2', DateTimeSuite)
+    .add('DateTime', DateTime2Suite)
     .add('MomentJS', MomentSuite)
     .add('MomentJS + Timezones', MomentTimezoneSuite);
 
@@ -53,7 +43,7 @@
    */
 
   var suiteItem = {
-    description: 'Set start of a day',
+    description: 'Create a new instance with an array',
     id: suiteId,
     suite: suite
   };
